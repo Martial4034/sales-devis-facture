@@ -15,7 +15,7 @@ import { Loader2, Copy, Check, FileText, Table, FolderOpen, FileText as GoogleDo
 
 interface N8nResponse {
   status: "success" | "error";
-  type: "devis" | "facture";
+  type: "devis" | "contrat";
   links: {
     pdf: string;
     excel: string;
@@ -46,7 +46,7 @@ export default function Home() {
     }
   };
 
-  const handleSubmit = async (type: "devis" | "facture") => {
+  const handleSubmit = async (type: "devis" | "contrat") => {
     setLoading(true);
     setError("");
     setSuccess(false);
@@ -54,7 +54,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        "https://n8n-large.teliosa.com/webhook/af10ac8f-f614-488e-9fc8-83bb19d90755",
+        "https://n8n-large.teliosa.com/webhook-test/af10ac8f-f614-488e-9fc8-83bb19d90755",
         {
           method: "POST",
           headers: {
@@ -86,7 +86,7 @@ export default function Home() {
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">
-            Devis / Facture Generator
+            Devis / Contrat Generator
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -142,14 +142,14 @@ export default function Home() {
             </Button>
             <Button
               className="flex-1"
-              onClick={() => handleSubmit("facture")}
+              onClick={() => handleSubmit("contrat")}
               disabled={loading || !formData.name || !formData.paymentMethod}
               variant={success ? "default" : "outline"}
             >
               {loading ? (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               ) : null}
-              Générer une facture
+              Générer un contrat
             </Button>
           </div>
 
@@ -160,7 +160,7 @@ export default function Home() {
           {n8nResponse && success && (
             <div className="space-y-4 mt-4">
               <div className="text-green-500 text-sm text-center">
-                {n8nResponse.type === "devis" ? "Devis" : "Facture"} généré avec succès !
+                {n8nResponse.type === "devis" ? "Devis" : "Contrat"} généré avec succès !
               </div>
               
               <div className="space-y-2">
@@ -194,7 +194,7 @@ export default function Home() {
 
                 <div className="flex items-center justify-between p-2 bg-gray-50 rounded-md">
                   <div className="flex items-center gap-2">
-                    {n8nResponse.type === "facture" ? (
+                    {n8nResponse.type === "contrat" ? (
                       <>
                         <GoogleDoc className="h-4 w-4 text-blue-500" />
                         <span className="text-sm">Google Doc</span>
