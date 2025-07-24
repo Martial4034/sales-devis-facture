@@ -55,7 +55,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        "https://n8n-large.teliosa.com/webhook-test/af10ac8f-f614-488e-9fc8-83bb19d90755",
+        process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || "https://n8n-large.teliosa.com/webhook/af10ac8f-f614-488e-9fc8-83bb19d90755",
         {
           method: "POST",
           headers: {
