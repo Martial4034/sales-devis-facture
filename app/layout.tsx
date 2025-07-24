@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ClerkProvider, Waitlist, SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
-import { Button } from "@/components/ui/button";
-import { Mail, Search, MessageCircle, UserPlus } from "lucide-react";
-import Link from "next/link";
+// import { ClerkProvider, SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
+// import { Button } from "@/components/ui/button";
+// import { Mail, Search, MessageCircle } from "lucide-react";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,10 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    // <ClerkProvider>
       <html lang="fr">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <SignedOut>
+          {/* <SignedOut>
             <div className="min-h-screen flex items-center justify-center bg-gray-50">
               <div className="w-full max-w-md p-4">
                 <div className="bg-white rounded-lg shadow-lg p-8">
@@ -39,7 +38,7 @@ export default function RootLayout({
                     Merci de vous connecter avec votre adresse Google Teliosa.
                     <br />
                     <span className="text-sm text-gray-500">
-                      Ce site est restreint à l'équipe de Teliosa.
+                      Ce site est restreint à l&apos;équipe de Teliosa.
                     </span>
                   </p>
 
@@ -47,7 +46,7 @@ export default function RootLayout({
                     <div className="flex items-start gap-3">
                       <Mail className="h-5 w-5 text-gray-500 mt-0.5" />
                       <p className="text-sm text-gray-600">
-                        TOUS LES MEMBRES de l'équipe Teliosa ont reçu une invitation dans leur adresse email @teliosa.com
+                        TOUS LES MEMBRES de l&apos;équipe Teliosa ont reçu une invitation dans leur adresse email @teliosa.com
                       </p>
                     </div>
 
@@ -61,7 +60,7 @@ export default function RootLayout({
                     <div className="flex items-start gap-3">
                       <MessageCircle className="h-5 w-5 text-gray-500 mt-0.5" />
                       <p className="text-sm text-gray-600">
-                        Si vous n'avez pas reçu d'email, merci de cliquer sur le bouton ci-dessous, puis Join Waitlist. Puis de ping @Martial sur Slack
+                        Si vous n&apos;avez pas reçu d&apos;email, merci de cliquer sur le bouton ci-dessous, puis Join Waitlist. Puis de ping @Martial sur Slack
                       </p>
                     </div>
                   </div>
@@ -91,11 +90,11 @@ export default function RootLayout({
               </div>
             </div>
           </SignedOut>
-          <SignedIn>
+          <SignedIn> */}
             {children}
-          </SignedIn>
+          {/* </SignedIn> */}
         </body>
       </html>
-    </ClerkProvider>
+    // </ClerkProvider>
   );
 }

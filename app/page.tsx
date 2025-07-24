@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2, Copy, Check, FileText, Table, FolderOpen, FileText as GoogleDoc } from "lucide-react";
-import { SignedIn } from "@clerk/nextjs";
+// import { SignedIn } from "@clerk/nextjs";
 
 interface N8nResponse {
   status: "success" | "error";
@@ -83,7 +83,7 @@ export default function Home() {
   };
 
   return (
-    <SignedIn>
+    // <SignedIn>
       <main className="min-h-screen flex items-center justify-center p-4 bg-gray-50">
         <Card className="w-full max-w-md">
           <CardHeader>
@@ -264,6 +264,6 @@ export default function Home() {
           </CardContent>
         </Card>
       </main>
-    </SignedIn>
+    // </SignedIn>
   );
 }
